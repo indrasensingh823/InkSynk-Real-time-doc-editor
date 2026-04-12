@@ -1,0 +1,513 @@
+/* client/src/styles/Templates.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+.templates-container {
+  min-height: 100vh;
+  width: 95%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+  font-family: 'Inter', sans-serif;
+  margin-left: 120px;
+}
+
+.templates-container h1 {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 2rem;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  letter-spacing: -0.5px;
+}
+
+/* Templates Grid with Animation */
+.templates-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+  max-height: 200px;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+/* Custom Scrollbar for Templates List */
+.templates-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.templates-list::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.templates-list::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.templates-list::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #ff6b6b 0%, #f78fb3 100%);
+}
+
+.templates-list button {
+  background: linear-gradient(145deg, #ffffff, #f0f0f0);
+  border: none;
+  padding: 1.5rem 1rem;
+  border-radius: 16px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #4a5568;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.templates-list button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.6s ease;
+}
+
+.templates-list button:hover::before {
+  left: 100%;
+}
+
+.templates-list button:hover {
+  transform: translateY(-8px) scale(1.05);
+  background: linear-gradient(145deg, #ffffff, #e3f2fd);
+  box-shadow: 
+    0 12px 30px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  color: #2d3748;
+}
+
+.templates-list button:active {
+  transform: translateY(-2px) scale(1.02);
+  transition: all 0.1s ease;
+}
+
+/* Toolbar Styles */
+.toolbar {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.toolbar button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.toolbar button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.toolbar button:hover::after {
+  width: 300px;
+  height: 300px;
+}
+
+.toolbar button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(102, 126, 234, 0.6);
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+.toolbar button:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* Editor Wrapper */
+.editor-wrapper {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.editor-wrapper:hover {
+  box-shadow: 
+    0 25px 80px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+/* Quill Editor Customization */
+.editor {
+  height: 600px;
+  border: none !important;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.ql-toolbar {
+  border: none !important;
+  border-bottom: 2px solid #e2e8f0 !important;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  padding: 1rem 1.5rem !important;
+  border-radius: 12px 12px 0 0 !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+.ql-toolbar .ql-formats {
+  margin-right: 1.5rem !important;
+}
+
+.ql-toolbar button {
+  border-radius: 8px !important;
+  margin: 2px !important;
+  transition: all 0.2s ease !important;
+}
+
+.ql-toolbar button:hover {
+  background: #667eea !important;
+  color: white !important;
+  transform: translateY(-1px) !important;
+}
+
+.ql-toolbar .ql-active {
+  background: #667eea !important;
+  color: white !important;
+}
+
+.ql-container {
+  border: none !important;
+  border-radius: 0 0 12px 12px !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.ql-editor {
+  padding: 2rem !important;
+  min-height: 500px;
+  background: white;
+  color: #2d3748;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.ql-editor.ql-blank::before {
+  font-style: normal !important;
+  color: #a0aec0 !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 1rem;
+}
+
+/* Custom Scrollbar for Editor */
+.ql-editor::-webkit-scrollbar {
+  width: 10px;
+}
+
+.ql-editor::-webkit-scrollbar-track {
+  background: #f7fafc;
+  border-radius: 8px;
+}
+
+.ql-editor::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 8px;
+  border: 2px solid #f7fafc;
+}
+
+.ql-editor::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+/* Header Styling in Editor */
+.ql-editor h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin: 1.5rem 0 1rem 0;
+  border-bottom: 3px solid #667eea;
+  padding-bottom: 0.5rem;
+}
+
+.ql-editor h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #4a5568;
+  margin: 1.2rem 0 0.8rem 0;
+}
+
+.ql-editor h3 {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #718096;
+  margin: 1rem 0 0.6rem 0;
+}
+
+/* List Styling */
+.ql-editor ul, 
+.ql-editor ol {
+  padding-left: 1.8rem;
+  margin: 0.8rem 0;
+}
+
+.ql-editor li {
+  margin: 0.4rem 0;
+  position: relative;
+}
+
+.ql-editor ul li::before {
+  content: '•';
+  color: #667eea;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+/* Blockquote Styling */
+.ql-editor blockquote {
+  border-left: 4px solid #667eea;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  padding: 1.5rem 2rem;
+  margin: 1.5rem 0;
+  border-radius: 0 12px 12px 0;
+  font-style: italic;
+  position: relative;
+}
+
+.ql-editor blockquote::before {
+  content: '"';
+  font-size: 3rem;
+  color: #667eea;
+  position: absolute;
+  left: 10px;
+  top: 5px;
+  opacity: 0.3;
+}
+
+/* Table Styling */
+.ql-editor table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.ql-editor th {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+}
+
+.ql-editor td {
+  padding: 1rem;
+  border-bottom: 1px solid #e2e8f0;
+  background: white;
+}
+
+.ql-editor tr:nth-child(even) td {
+  background: #f8fafc;
+}
+
+.ql-editor tr:hover td {
+  background: #f1f5f9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .templates-container {
+    padding: 15px;
+  }
+  
+  .templates-container h1 {
+    font-size: 2rem;
+  }
+  
+  .templates-list {
+    grid-template-columns: 1fr;
+    max-height: 300px;
+    gap: 1rem;
+  }
+  
+  .templates-list button {
+    padding: 1.2rem 0.8rem;
+    font-size: 1rem;
+  }
+  
+  .toolbar {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .toolbar button {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .editor-wrapper {
+    padding: 1rem;
+    border-radius: 15px;
+  }
+  
+  .ql-editor {
+    padding: 1.5rem !important;
+    font-size: 1rem;
+  }
+  
+  .ql-toolbar {
+    padding: 0.8rem 1rem !important;
+  }
+  
+  .ql-toolbar .ql-formats {
+    margin-right: 0.8rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .templates-container h1 {
+    font-size: 1.8rem;
+  }
+  
+  .templates-list button {
+    padding: 1rem 0.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .ql-editor {
+    padding: 1rem !important;
+  }
+  
+  .ql-editor h1 {
+    font-size: 2rem;
+  }
+  
+  .ql-editor h2 {
+    font-size: 1.6rem;
+  }
+  
+  .ql-editor h3 {
+    font-size: 1.3rem;
+  }
+}
+
+/* Loading Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.templates-list button {
+  animation: fadeInUp 0.6s ease forwards;
+  opacity: 0;
+}
+
+.templates-list button:nth-child(1) { animation-delay: 0.1s; }
+.templates-list button:nth-child(2) { animation-delay: 0.2s; }
+.templates-list button:nth-child(3) { animation-delay: 0.3s; }
+.templates-list button:nth-child(4) { animation-delay: 0.4s; }
+.templates-list button:nth-child(5) { animation-delay: 0.5s; }
+.templates-list button:nth-child(6) { animation-delay: 0.6s; }
+.templates-list button:nth-child(7) { animation-delay: 0.7s; }
+.templates-list button:nth-child(8) { animation-delay: 0.8s; }
+.templates-list button:nth-child(9) { animation-delay: 0.9s; }
+.templates-list button:nth-child(10) { animation-delay: 1.0s; }
+.templates-list button:nth-child(11) { animation-delay: 1.1s; }
+.templates-list button:nth-child(12) { animation-delay: 1.2s; }
+.templates-list button:nth-child(13) { animation-delay: 1.3s; }
+.templates-list button:nth-child(14) { animation-delay: 1.4s; }
+.templates-list button:nth-child(15) { animation-delay: 1.5s; }
+.templates-list button:nth-child(16) { animation-delay: 1.6s; }
+.templates-list button:nth-child(17) { animation-delay: 1.7s; }
+.templates-list button:nth-child(18) { animation-delay: 1.8s; }
+.templates-list button:nth-child(19) { animation-delay: 1.9s; }
+.templates-list button:nth-child(20) { animation-delay: 2.0s; }
+
+/* Success Message Animation */
+@keyframes successPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.success-message {
+  animation: successPulse 0.6s ease;
+}
+
+/* Focus States for Accessibility */
+.templates-list button:focus,
+.toolbar button:focus {
+  outline: 3px solid #667eea;
+  outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+  .templates-container {
+    background: white !important;
+  }
+  
+  .templates-list,
+  .toolbar {
+    display: none;
+  }
+  
+  .editor-wrapper {
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+  }
+  
+  .ql-toolbar {
+    display: none !important;
+  }
+  
+  .ql-editor {
+    padding: 1rem !important;
+    box-shadow: none !important;
+  }
+}

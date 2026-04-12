@@ -1,0 +1,32 @@
+{
+  "name": "inksynk-server",
+  "version": "1.0.0",
+  "description": "Backend for InkSynk Real-Time Document Editor",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [
+    "realtime-editor",
+    "socket.io",
+    "mongodb",
+    "express",
+    "chat-app",
+    "collaborative-editor"
+  ],
+  "author": "Indrasen Singh",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
+    "googleapis": "^144.0.0",
+    "mongoose": "^8.9.5",
+    "multer": "^1.4.5-lts.1",
+    "socket.io": "^4.8.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}
