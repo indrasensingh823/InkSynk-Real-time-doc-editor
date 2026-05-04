@@ -2,10 +2,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { io } from 'socket.io-client';
 import '../styles/ChatPopup.css';
-import { REACT_APP_BACKEND_URL } from '../api';
+import { BACKEND_URL } from '../api';
 
 // we connect to the chat namespace
-const SOCKET_URL = (process.env.REACT_APP_BACKEND_URL || 'http://localhost:5002').replace(/\/$/, '') + '/chat';
+const SOCKET_URL = (process.env.BACKEND_URL || 'http://localhost:5002').replace(/\/$/, '') + '/chat';
 
 export default function ChatPopup({ room }) {
   // room: optional (document id) — if not supplied uses 'global'
