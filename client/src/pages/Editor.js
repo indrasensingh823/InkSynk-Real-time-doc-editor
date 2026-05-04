@@ -299,7 +299,7 @@ export default function Editor() {
   const initializeChat = () => {
     if (chatSocketRef.current) return;
 
-    const chatSocket = io(`${REACT_APP_BACKEND_URL}/chat`);
+    const chatSocket = io(`${BACKEND_URL}/chat`);
     chatSocketRef.current = chatSocket;
 
     chatSocket.on("connect", () => {
